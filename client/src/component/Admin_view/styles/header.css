@@ -1,0 +1,28 @@
+.header{
+     width: 100%;
+    background-color: var(--darkgreen);
+    color: var(--ligntblueblack);
+}
+.headr_contener{
+     padding: 15px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     
+     
+     
+}
+.headr_contener h1{
+     font-size: 19px;
+}
+.logout_button{
+   
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     border: solid black 1px;
+     padding: 4px 20px;
+     cursor: pointer;
+     background-color: var(--therd_color);
+     color:black;
+}

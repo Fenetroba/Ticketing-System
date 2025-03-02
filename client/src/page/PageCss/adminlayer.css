@@ -1,0 +1,8 @@
+.adminLayer{
+     display: flex;
+     align-items: flex-start;
+}
+.top{
+     z-index: 10;
+
+}
