@@ -1,6 +1,7 @@
 import express from "express";
 import env from 'dotenv';
 import Authrouter from "./Router/UserAuth.Router.js";
+import Ticketrouting from "./Router/ticketRoutes.js";
 import connectDB from "./Lib/DataBase.js";
 import cors from "cors";
 import cookieParser from 'cookie-parser'
@@ -28,6 +29,7 @@ app.use(cors({
 connectDB();
 
 app.use("/api/auth", Authrouter);
+app.use("/api/ticket", Ticketrouting);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);  
 });

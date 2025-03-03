@@ -2,10 +2,7 @@
 import "./auth/Css/AuthLayer.css";
 import logo from "../assets/Logo.png";
 import { RiArrowDownSFill } from "react-icons/ri";
-import Signup from "./auth/Signin";
 
-
-import Login from "./auth/Login.jsx";
 import { Outlet } from "react-router-dom";
 
 const AuthLayer = () => {

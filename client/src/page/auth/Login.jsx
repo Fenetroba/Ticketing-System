@@ -8,7 +8,7 @@ import Loder from "../../component/loder/Loder";
 
 const Login = () => {
   const { loading } = useSelector((state) => state.Auth);
-  const dispatch = useDispatch(); // Corrected variable name from Dispatch to dispatch
+  const dispatch = useDispatch();
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -22,33 +22,35 @@ const Login = () => {
       } else {
         toast.error(data.payload.message || "Login failed");
       }
-      setLogin({ email: "", password: "" }); // Reset login state correctly
+      setLogin({ email: "", password: "" });
     });
   };
 
   return (
     <div className="login_top">
-      <div className="login_container"> {/* Corrected the spelling from 'contenere' to 'container' */}
+      <div className="login_container">
         <h1>Login Here</h1>
         <form onSubmit={submitHandler} className="login_form">
-          <label>Email</label>
+          <label htmlFor="email">Email</label> {/* Added htmlFor for accessibility */}
           <input
             type="email"
             placeholder="Fenet@gmail.com"
             id="email"
             required
-            onChange={(e) => setLogin({ ...login, email: e.target.value })} // Use lowercase 'login'
+            value={login.email} // Controlled input
+            onChange={(e) => setLogin({ ...login, email: e.target.value })}
           />
-          <label>Password</label>
+          <label htmlFor="password">Password</label> {/* Added htmlFor for accessibility */}
           <input
             type="password"
             placeholder="..........."
             id="password"
             required
-            onChange={(e) => setLogin({ ...login, password: e.target.value })} // Use lowercase 'login'
+            value={login.password} // Controlled input
+            onChange={(e) => setLogin({ ...login, password: e.target.value })}
           />
-          <button className="Loedbtn" type="submit"> {/* Added type="submit" */}
-            {loading ? <Loder /> : "Login"} {/* Changed Login to "Login" */}
+          <button className="Loedbtn" type="submit">
+            {loading ? <Loder /> : "Login"}
           </button>
         </form>
         <div className="directLogiOrSign">

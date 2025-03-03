@@ -3,7 +3,6 @@ import "../Admin_view/styles/layer.css";
 import topArrow from "../../assets/upload.png";
 import bottomArrow from "../../assets/down.png";
 import { RiDeleteBack2Fill, RiMenu3Fill } from "react-icons/ri";
-import ProductsImageUploder from "./productsImageUploder";
 const Layer = () => {
   // this state uses to handele for the add product page
   const [AddProductPage, setProductPage] = useState(false);
@@ -79,12 +78,7 @@ const Layer = () => {
                 </p>
                 <h1>Add New Product</h1>
                 <form onSubmit={handleSubmit}>
-                  <ProductsImageUploder
-                    ImageFile={ImageFile}
-                    setImageFile={setImageFile}
-                    UploadImageUrl={UploadImageUrl}
-                    setUploadImageUrl={setUploadImageUrl}
-                  />
+                  
                   <label htmlFor="product-title">Product Title</label>
                   <input
                     type="text"

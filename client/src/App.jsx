@@ -1,19 +1,14 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import AuthLayer from "./page/AuthLayer";
 import Login from "./page/Auth/Login";
 import Signin from "./page/Auth/Signin";
-import ShopingLayer from "./page/ShopingLayer";
-import Home from "./page/Shoping/Home";
+import UserLAyer from "./page/UserLayer";
+import Home from "./page/Users/Home";
 import Nofound from "./page/No found/Nofound";
-import DashboardShoping from "./page/Shoping/DashboardShoping";
-import CheckOut from "./page/Shoping/CheckOut";
-import Listing from "./page/Shoping/Listing";
 import AdminLayer from "./page/AdminLayer";
 import DashboardAdmin from "./page/Admin/DashboardAdmin";
-import Featured from "./page/Admin/Featured";
-import Order from "./page/Admin/Order";
-import Product from "./page/Admin/Product";
 import CheckAuth from "./component/Authnticatin_checker/CheckAuth";
 import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,17 +45,15 @@ function App() {
         </Route>
 
         <Route
-          path="/shop"
+          path="/user"
           element={
             <CheckAuth isAuth={isAuthenticated} user={user}>
-              <ShopingLayer />
+              <UserLAyer />
             </CheckAuth>
           }
         >
-          <Route path="home" element={<Home />} />
-          <Route path="shopping_dashboard" element={<DashboardShoping />} />
-          <Route path="checkout" element={<CheckOut />} />
-          <Route path="listing" element={<Listing />} />
+          <Route path="home" element={<Home/>} />
+        
         </Route>
 
         <Route
@@ -72,9 +65,7 @@ function App() {
           }
         >
           <Route path="admin_dashboard" element={<DashboardAdmin />} />
-          <Route path="features" element={<Featured />} />
-          <Route path="orders" element={<Order />} />
-          <Route path="products" element={<Product />} />
+    
         </Route>
 
         <Route path="*" element={<Nofound />} />

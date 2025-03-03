@@ -1,6 +1,5 @@
 import React, { useState ,useEffect} from "react";
 import "./Css/signup.css";
-import {signup_LanguageEnglish ,signup_LanguageAmharic,signup_LanguageOromice} from '../../component/config/config.js'
 import Loder from "../../component/loder/Loder.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

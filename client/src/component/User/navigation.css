@@ -1,0 +1,21 @@
+.UserLAyerTop{
+     background-color: var(--blueunder);
+     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.39);
+     z-index: 222;
+}
+.UserLAyerTop .header_left_side{
+     display: flex;
+     align-items: center;
+     gap: 10px;
+}
+.UserLAyerTop .logout_buttons{
+     display: flex;
+     align-items: center;
+     gap: 20px;
+     padding: 2px 20px;
+     cursor: pointer;
+     background-color: var(--therd_color);
+     color:black;
+     font-size: 20px;
+     border: none;
+}

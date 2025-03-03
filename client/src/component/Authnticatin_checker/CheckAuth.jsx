@@ -8,7 +8,7 @@ const CheckAuth = ({ isAuth, user, children }) => {
   const loginPath = '/auth/login';
   const signupPath = '/auth/signup';
   const adminDashboardPath = '/admin/admin_dashboard';
-  const shopHomePath = '/shop/home';
+  const shopHomePath = '/user/home';
   const shoppingDashboardPath = '/shop/shopping_dashboard';
 
   // Log current state for debugging
@@ -18,7 +18,7 @@ const CheckAuth = ({ isAuth, user, children }) => {
 
   // Redirect to login if not authenticated and not on login/signup pages
   if (!isAuth && !(location.pathname === loginPath || location.pathname === signupPath)) {
-    return <Navigate to={loginPath} />;
+    return <Navigate to={loginPath} state={{ from: location }} />;
   }
 
   // Redirect authenticated users away from login/signup pages
@@ -36,12 +36,12 @@ const CheckAuth = ({ isAuth, user, children }) => {
   }
 
   // Redirect authenticated admins from shop routes
-  if (isAuth && user?.role === "Admin" && location.pathname.includes('/shop')) {
+  if (isAuth && user?.role === "Admin" && location.pathname.includes('/user')) {
     return <Navigate to={adminDashboardPath} />;
   }
 
   // If none of the above conditions match, render the children
-  return <div>{children}</div>;
+  return <>{children}</>;
 };
 
 export default CheckAuth;

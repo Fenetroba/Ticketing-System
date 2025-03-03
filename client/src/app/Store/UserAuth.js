@@ -56,6 +56,17 @@ export const loginUser = createAsyncThunk(
     }
   }
 );
+export const logoutUser = createAsyncThunk(
+  "/auth/logout",
+
+  async () => {
+    const response = await axios.post("/auth/logout", {}, {
+      withCredentials: true,
+    });
+    return response.data;
+   
+  }
+);
 
 export const CheckAuths = createAsyncThunk(
   "/auth/checkAuth",
@@ -77,11 +88,9 @@ export const authSlice = createSlice({
     SetUser: (state, action) => {
       state.user = action.payload; // Set user based on action payload
     },
-    logout: (state) => {
-      state.user = null;
-      state.isAuthenticated = false;
-    },
+  
   },
+  
   extraReducers: (builder) => {
     builder
       .addCase(signupUser.pending, (state) => {
@@ -127,10 +136,15 @@ export const authSlice = createSlice({
         state.loading = false; // Set loading to false
         state.user = null; // Reset user on failure
         state.isAuthenticated = false; // Reset authentication state
-      });
+      })
+      .addCase(logoutUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = null;
+        state.isAuthenticated = false;
+      });;
   },
 });
 
 // Export actions
-export const { logout, SetUser } = authSlice.actions; 
+export const {SetUser } = authSlice.actions; 
 export default authSlice.reducer; // Export reducer
