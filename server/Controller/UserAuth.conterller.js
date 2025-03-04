@@ -8,7 +8,7 @@ env.config();
 export const SignUp = async (req, res) => {
   const { email, password, UserName } = req.body;
 
-  // Check if all required fields are provided
+
   if (!email || !password || !UserName) {
     return res
       .status(400)
@@ -70,7 +70,7 @@ export const Login = async (req, res) => {
         email: user.email,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "60m" } // Corrected key
+      { expiresIn: "60m" } 
     );
 
     res.cookie("token", token, { httpOnly: true, secure: false });

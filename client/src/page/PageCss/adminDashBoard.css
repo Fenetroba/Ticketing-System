@@ -4,3 +4,31 @@ background-color: var(--darkgreentra);
      z-index: 5;
 
 }
+.admin-dashboard {
+     padding: 20px;
+   }
+   
+   .error-message {
+     color: red;
+   }
+   
+   .ticket-item {
+     margin-bottom: 15px;
+     padding: 10px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+   }
+   
+   .status-buttons button {
+     margin-right: 5px;
+   }
+   
+   .create-ticket-link {
+     display: inline-block;
+     margin-top: 20px;
+     padding: 10px 15px;
+     background-color: #007bff;
+     color: white;
+     text-decoration: none;
+     border-radius: 5px;
+   }

@@ -29,24 +29,24 @@ const Login = () => {
   return (
     <div className="login_top">
       <div className="login_container">
-        <h1>Login Here</h1>
+        <h2>Login Here</h2>
         <form onSubmit={submitHandler} className="login_form">
-          <label htmlFor="email">Email</label> {/* Added htmlFor for accessibility */}
+          <label htmlFor="email">Email</label> 
           <input
             type="email"
             placeholder="Fenet@gmail.com"
             id="email"
             required
-            value={login.email} // Controlled input
+            value={login.email} 
             onChange={(e) => setLogin({ ...login, email: e.target.value })}
           />
-          <label htmlFor="password">Password</label> {/* Added htmlFor for accessibility */}
+          <label htmlFor="password">Password</label> 
           <input
             type="password"
             placeholder="..........."
             id="password"
             required
-            value={login.password} // Controlled input
+            value={login.password} 
             onChange={(e) => setLogin({ ...login, password: e.target.value })}
           />
           <button className="Loedbtn" type="submit">

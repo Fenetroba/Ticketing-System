@@ -11,7 +11,8 @@ const AuthLayer = () => {
       <div className="main_auth_contener">
         <h1>wellcome Ticketing System</h1>
 
-        <span className="goldeDecor">
+        <span className="goldeDecor text-black">
+        
           <img src={logo} alt="Logo" />
         </span>
       </div>

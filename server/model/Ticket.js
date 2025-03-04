@@ -1,6 +1,6 @@
 import mongoose  from "mongoose"
 const ticketSchema = new mongoose.Schema({
-  subject: {
+  title: {
     type: String,
     required: true,
   },
@@ -8,15 +8,9 @@ const ticketSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  priority: {
-    type: String,
-    enum: ['Low', 'Medium', 'High'],
-    default: 'Medium',
-  },
   status: {
     type: String,
-    enum: ['Open', 'In Progress', 'Resolved', 'Closed'],
-    default: 'Open',
+    default: 'In Progress',
   },
   createdAt: {
     type: Date,
@@ -28,18 +22,12 @@ const ticketSchema = new mongoose.Schema({
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'UserAuth', // Assuming you have a User model
+    ref: 'UserAuth',
     required: true,
   },
-  attachments: [
-    {
-      filename: String,
-      path: String,
-    },
-  ],
 });
 
-// Middleware to update the updatedAt field before saving
+
 ticketSchema.pre('save', function (next) {
   this.updatedAt = Date.now();
   next();

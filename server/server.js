@@ -29,7 +29,7 @@ app.use(cors({
 connectDB();
 
 app.use("/api/auth", Authrouter);
-app.use("/api/ticket", Ticketrouting);
+app.use("/api/tickets", Ticketrouting);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);  
 });

@@ -1,43 +1,28 @@
 import jwt from "jsonwebtoken";
 import env from "dotenv";
 
-// Load environment variables from .env file
 env.config();
 
-const authMiddleware = async (req, res, next) => {
-  // Access the token from cookies
-  const token = req.cookies.token;
-
-  try {
-    // Check if token is present
-    if (!token) {
-      return res.status(401).json({ message: "Unauthorized Access", success: false });
-    }
-
-    // Verify the token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    
-    // Attach user info to the request
-    req.user = decoded;
-
-    // Proceed to the next middleware or route handler
-    next();
-  } catch (error) {
-    console.error("Error in authMiddleware:", error); // Log the error
-
-    // Check if the error is due to token expiration or invalid token
-    if (error.name === "JsonWebTokenError") {
-      return res.status(403).json({ message: "Invalid token", success: false });
-    } else if (error.name === "TokenExpiredError") {
-      return res.status(401).json({ message: "Token expired", success: false });
-    }
-
-    // Handle other possible errors
-    return res.status(500).json({
-      message: "An error occurred in the auth middleware",
-      success: false,
-    });
+const authMiddleware = (req, res, next) => {
+  const token = req.cookies.token; 
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized Access", success: false });
   }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      console.error("JWT verification failed:", err);
+      return res.status(err.name === "TokenExpiredError" ? 401 : 403).json({
+        message: err.name === "TokenExpiredError" ? "Token expired" : "Invalid token",
+        success: false,
+      });
+    }
+
+    req.user = decoded; 
+    
+    console.log("Authenticated User:", req.user); // Log the user info
+    next();
+  });
 };
 
 export default authMiddleware;

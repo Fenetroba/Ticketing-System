@@ -1,61 +1,91 @@
-import Ticket from '../model/Ticket.js'; // Adjust the path as needed
+import Ticket from '../model/Ticket.js'; 
 
-// Create a new ticket
+
+export const getUserTickets = async (req, res) => {
+  try {
+
+    const tickets = await Ticket.find({ userAuth: req.user._id })
+    
+    const userTickets = tickets.map((ticket) => {
+      return ticket.toJSON(); 
+    });
+
+    res.json(userTickets);
+  } catch (error) {
+    console.log("Error in getUserTickets controller:", error.message);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+
+
+
+
 export const createTicket = async (req, res) => {
   try {
-    const ticket = new Ticket(req.body);
-    await ticket.save();
-    res.status(201).json(ticket);
+   
+    console.log("Creating ticket for user ID:", req.user.id);
+
+   
+    const ticket = new Ticket({
+      title: req.body.subject,
+      description: req.body.description,
+      status: req.body.status || 'In Progress',
+      userId: req.user.id, 
+
+    });
+
+
+    const savedTicket = await ticket.save();
+
+    res.status(201).json(savedTicket);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    console.error("Error creating ticket:", error.message); // Log the error
+    res.status(400).json({ message: "Failed to create ticket", error: error.message });
   }
 };
 
-// Get all tickets
-export const getAllTickets = async (req, res) => {
-  try {
-    const tickets = await Ticket.find();
-    res.status(200).json(tickets);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
 
-// Get a ticket by ID
-export const getTicketById = async (req, res) => {
+  
+ export const getTicketById = async (req, res) => {
   try {
-    const ticket = await Ticket.findById(req.params.id);
+    const userId = req.user.id; 
+ console.log(userId)
+  
+    const tickets = await Ticket.find({ userId: userId }).populate('userId', '_id UserName email'); 
+
+    if (!tickets || tickets.length === 0) {
+      return res.status(404).json({ message: 'No tickets found for this user' });
+    }
+
+    res.status(200).json(tickets); 
+  } catch (error) {
+    console.error('Error fetching tickets:', error);
+    res.status(500).json({ message: 'Failed to fetch tickets', error: error.message });
+  }
+ };
+
+
+
+export const updateTicket =  async (req, res) => {
+  const { id } = req.params; 
+  const updatedData = req.body; 
+
+  try {
+    
+    const ticket = await Ticket.findByIdAndUpdate(id, updatedData, { new: true });
+
+    
     if (!ticket) {
       return res.status(404).json({ message: 'Ticket not found' });
     }
-    res.status(200).json(ticket);
+
+   
+    res.json(ticket);
   } catch (error) {
+ 
     res.status(500).json({ message: error.message });
   }
-};
+}
 
-// Update a ticket
-export const updateTicket = async (req, res) => {
-  try {
-    const ticket = await Ticket.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!ticket) {
-      return res.status(404).json({ message: 'Ticket not found' });
-    }
-    res.status(200).json(ticket);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
 
-// Delete a ticket
-export const deleteTicket = async (req, res) => {
-  try {
-    const ticket = await Ticket.findByIdAndDelete(req.params.id);
-    if (!ticket) {
-      return res.status(404).json({ message: 'Ticket not found' });
-    }
-    res.status(204).send();
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};

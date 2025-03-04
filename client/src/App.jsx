@@ -5,7 +5,7 @@ import AuthLayer from "./page/AuthLayer";
 import Login from "./page/Auth/Login";
 import Signin from "./page/Auth/Signin";
 import UserLAyer from "./page/UserLayer";
-import Home from "./page/Users/Home";
+import UserDashboard from "./component/User/UserDashboard";
 import Nofound from "./page/No found/Nofound";
 import AdminLayer from "./page/AdminLayer";
 import DashboardAdmin from "./page/Admin/DashboardAdmin";
@@ -26,7 +26,7 @@ function App() {
   console.log(loading, user, isAuthenticated, location.pathname);
 
   if (!location.pathname.startsWith("/auth") && loading) {
-    return <div>Loading...</div>; // Show a loading indicator while checking auth
+    return <div>Loading...</div>; 
   }
 
   return (
@@ -52,7 +52,7 @@ function App() {
             </CheckAuth>
           }
         >
-          <Route path="home" element={<Home/>} />
+          <Route path="user_dashboard" element={<UserDashboard/>} />
         
         </Route>
 

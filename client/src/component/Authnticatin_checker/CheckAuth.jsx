@@ -8,8 +8,8 @@ const CheckAuth = ({ isAuth, user, children }) => {
   const loginPath = '/auth/login';
   const signupPath = '/auth/signup';
   const adminDashboardPath = '/admin/admin_dashboard';
-  const shopHomePath = '/user/home';
-  const shoppingDashboardPath = '/shop/shopping_dashboard';
+  const shopHomePath = '/user';
+
 
   // Log current state for debugging
   console.log("isAuth:", isAuth);
@@ -32,7 +32,7 @@ const CheckAuth = ({ isAuth, user, children }) => {
 
   // Redirect authenticated non-admin users from admin routes
   if (isAuth && user?.role !== "Admin" && location.pathname.includes('/admin')) {
-    return <Navigate to={shoppingDashboardPath} />;
+    return <Navigate to={shopHomePath} />;
   }
 
   // Redirect authenticated admins from shop routes

@@ -24,6 +24,8 @@ const Signup = () => {
         navigate("/auth/login");
       } else {
         toast.error("some thing is wrong");
+        navigate("/auth/login");
+
       }
     });
   };
