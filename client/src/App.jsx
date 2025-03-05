@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route
-          path="auth"
+          path="/auth"
           element={
             <CheckAuth isAuth={isAuthenticated} user={user}>
               <AuthLayer />
