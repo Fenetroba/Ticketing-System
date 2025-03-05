@@ -1,7 +1,7 @@
 import React from 'react'
 import ticket from "../../assets/ticket.png";
 import "../User/navigation.css"
-import LogOut from "../../assets/logOut.png";
+import LogOut from "../../assets/logout.png";
 import {useDispatch}from 'react-redux'
 import { logoutUser } from "../../app/Store/UserAuth.js";
 import { useNavigate } from "react-router-dom";
