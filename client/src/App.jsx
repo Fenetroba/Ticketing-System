@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route
-          path="/auth"
+          path="/"
           element={
             <CheckAuth isAuth={isAuthenticated} user={user}>
               <AuthLayer />
@@ -69,7 +69,7 @@ function App() {
     
         </Route>
 
-        <Route path="*" element={<AuthLayer/>} />
+        <Route path="*" element={<Nofound />} />
       </Routes>
 
       <Toaster />
