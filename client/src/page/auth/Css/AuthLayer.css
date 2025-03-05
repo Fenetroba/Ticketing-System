@@ -71,20 +71,22 @@ box-shadow: 0 10px 10px rgba(255, 252, 252, 0.13);
      .main_auth_contener h1{
           font-size: 20px;
  }
+    
      .Allconten{   
           display: flex;
           flex-direction: column;
           }
           .main_auth_contener{
 
-               background-color: black;
+               background: linear-gradient(135deg, #000000 50%, #2d2e2d2d 50%);
+         
                width: 100%;
-               height: 130px;
+               height: 70px;
                display: flex;
                justify-content: space-around;
                flex-direction: column;
-              
-               color: #fff;
+              font-weight: 900;
+               color: #e9ae0c;
                font-size: 22px;
               
           }
