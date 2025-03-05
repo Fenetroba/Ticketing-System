@@ -1,6 +1,6 @@
 import React from "react";
 import "../Admin_view/styles/header.css";
-import LogOut from "../../assets/logOut.png";
+import LogOut from "../../assets/logout.png";
 import {useDispatch}from 'react-redux'
 import { logoutUser } from "../../app/Store/UserAuth.js";
 import { RiAdminLine } from "react-icons/ri";

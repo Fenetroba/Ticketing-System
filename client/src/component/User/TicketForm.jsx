@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux'
-import Load from '../loder/Loder'
+import Load from '../loder/Loder.jsx'
 const TicketForm = ({ onSubmit }) => {
   const {loading } = useSelector((state) => state.tickets);
 
