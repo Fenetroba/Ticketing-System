@@ -69,7 +69,7 @@ function App() {
     
         </Route>
 
-        <Route path="*" element={<Nofound />} />
+        <Route path="*" element={<AuthLayer/>} />
       </Routes>
 
       <Toaster />
