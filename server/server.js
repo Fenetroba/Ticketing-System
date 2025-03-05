@@ -10,7 +10,7 @@ env.config();
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
-const _dirname=path.resolve()
+const __dirname=path.resolve()
 const PORT = 5000;
 
 app.use(cors({
