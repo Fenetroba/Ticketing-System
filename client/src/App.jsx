@@ -3,7 +3,7 @@ import "./App.css";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import AuthLayer from "./page/AuthLayer";
 import Login from "./page/Auth/Login";
-import Signin from "./page/Auth/Signin";
+import Signin from "./page/auth/Signin";
 import UserLAyer from "./page/UserLayer";
 import UserDashboard from "./component/User/UserDashboard";
 import Nofound from "./page/No found/Nofound";
