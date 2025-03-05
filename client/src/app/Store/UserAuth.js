@@ -100,8 +100,8 @@ export const authSlice = createSlice({
       .addCase(signupUser.fulfilled, (state, action) => {
         state.loading = false; // Set loading to false
         toast.success("Signup successful!"); // Show success message
-        state.user = action.payload.user || null; // Adjust based on your logic
-        state.isAuthenticated = action.payload.success; // Adjust based on your logic
+        state.user =  null; // Adjust based on your logic
+        state.isAuthenticated = false; // Adjust based on your logic
       })
       .addCase(signupUser.rejected, (state, action) => {
         state.loading = false; // Set loading to false

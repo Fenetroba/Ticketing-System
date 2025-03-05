@@ -1,4 +1,4 @@
-import "../PageCss/adminDashBoard.css"; 
+
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllTickets, updateTicketStatus } from "../../app/Store/tickets";

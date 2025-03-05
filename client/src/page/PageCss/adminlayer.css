@@ -6,3 +6,7 @@
      z-index: 10;
 
 }
+.Allconten{
+     background-color: var(--leamentran);
+     margin: 0;
+}

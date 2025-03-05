@@ -1,7 +1,7 @@
 
 .main_auth_contener{
 
-     background-color: black;
+     background-color: var(--button);
      width: 50%;
      height: 100vh;
      color: #fff;
@@ -21,24 +21,21 @@ align-items: center;
 justify-content: space-evenly;
 
 
+
 }
 .goldeDecor{
 position: absolute;
-top: -40px;
-left: -60px;
-width:400px;
-height: 400px;
-background-color: #fff;
-box-shadow: 0 0px 90px rgb(255, 252, 252);
-border-radius: 50%;
-display: flex;
-align-items: flex-end;
-justify-content: center;
-overflow: hidden;
+bottom: 60px;
+left: 0px;
+width:50%;
+height: 5%;
+background-color: var(--button);
+box-shadow: 0 10px 10px rgba(255, 252, 252, 0.13);
+
 }
 .goldeDecor img{
-     height: 400px;
-     width: 400px;
+     height: 300px;
+     width: 300px;
 }
 .Language{
      position:absolute;
@@ -71,6 +68,9 @@ overflow: hidden;
 
 
 @media screen and (max-width:879px) {
+     .main_auth_contener h1{
+          font-size: 20px;
+ }
      .Allconten{   
           display: flex;
           flex-direction: column;
@@ -89,21 +89,8 @@ overflow: hidden;
               
           }
           .goldeDecor{
-               width: 100px;
-               height: 100px;
-               position: static;
+          display: none;
           }
-          .goldeDecor img{
-               width: 100px;
-               height: 100px;
-          }
-         .Language{
-     position:absolute;
-     top: 10%;
-     left: 4%;
-     font-size: 14px;
-     cursor: pointer;
-    
-}
-     
+         
+   
 }

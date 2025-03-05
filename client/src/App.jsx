@@ -14,6 +14,7 @@ import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {CheckAuths} from './app/Store/UserAuth'
+import LoadePage from './component/loder/PageLoder'
 function App() {
   const { user, isAuthenticated, loading } = useSelector((state) => state.Auth);
   const dispatch = useDispatch();
@@ -23,10 +24,10 @@ function App() {
     dispatch(CheckAuths());
   }, [dispatch]);
 
-  console.log(loading, user, isAuthenticated, location.pathname);
+ 
 
   if (!location.pathname.startsWith("/auth") && loading) {
-    return <div>Loading...</div>; 
+    return <LoadePage/>; 
   }
 
   return (

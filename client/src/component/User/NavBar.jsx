@@ -15,14 +15,14 @@ const NavBar = () => {
       }
   return (
     <div>
-      <div className="d-flex w-100 h-100 justify-content-between align-items-center gap-3 px-5 UserLAyerTop p-2 ">
+      <div className="d-flex w-100 justify-content-between   UserLAyerTop  position-fixed top-0 ">
       <div className="header_right_side d-flex align-items-center  gap-2">
       <img
           src={ticket}
           alt="ticket"
-          style={{ width: "60px", height: "60px" }}
+          style={{ width: "50px", height: "50px" }}
         />
-        <h2>Ticketing System</h2>
+        <h2 className='sm-'>Ticketing System</h2>
       </div>
 
         <div className="header_left_side">

@@ -20,7 +20,6 @@ const Signup = () => {
     e.preventDefault();
     Dispatch(signupUser(form)).then((data) => {
       if (data?.payload?.success) {
-        toast.success("Succsess fully You Rgisterd");
         navigate("/auth/login");
       } else {
         toast.error("some thing is wrong");

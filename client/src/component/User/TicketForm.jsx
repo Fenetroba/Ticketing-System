@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-
+import {useSelector} from 'react-redux'
+import Load from '../loder/Loder'
 const TicketForm = ({ onSubmit }) => {
+  const {loading } = useSelector((state) => state.tickets);
+
   const [subject, setSubject] = useState(''); // State for ticket subject
   const [description, setDescription] = useState(''); // State for ticket description
 
@@ -50,7 +53,7 @@ const TicketForm = ({ onSubmit }) => {
         />
       </div>
 
-      <button type="submit" className="btn btn-primary">Create Ticket</button>
+      <button type="submit" className="btn btn-primary">{loading ? <Load/>:<span>Create Tickets</span>}</button>
     </form>
   );
 };

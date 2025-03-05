@@ -1,7 +1,8 @@
 .UserLAyerTop{
      background-color: var(--blueunder);
-     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.39);
+     /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.39); */
      z-index: 222;
+     padding: 10px;
 }
 .UserLAyerTop .header_left_side{
      display: flex;
@@ -19,3 +20,24 @@
      font-size: 20px;
      border: none;
 }
+/* Add this to your CSS file */
+
+.sidebar {
+     position: fixed;
+     top: 70px;
+     left: 0;
+     width: 200px;
+     height: 100vh;
+     background-color: var(--signForm);
+     transition: transform 0.3s ease;
+     z-index: 1000;
+   }
+   
+   .sidebar.closed {
+     transform: translateX(-85%);
+   }
+   
+   .sidebar-content {
+     padding: 20px;
+     margin-top: 80px;
+   }

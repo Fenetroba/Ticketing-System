@@ -1,5 +1,5 @@
 import express from 'express';
-import {createTicket,getUserTickets,getTicketById,updateTicket,deleteTicket} from '../Controller/ticketController.js';
+import {createTicket,getUserTickets,getTicketById,updateTicket} from '../Controller/ticketController.js';
 import authMiddleware from '../Middleware/Auth.middleware.js';
 const router = express.Router();
 
@@ -14,8 +14,5 @@ router.get('/gettickets',authMiddleware ,getTicketById);
 
 // Update a ticket
 router.put('/updatetickets/:id',authMiddleware, updateTicket);
-
-// Delete a ticket
-router.delete('/deletetickets/:id',authMiddleware,deleteTicket);
 
 export default router;

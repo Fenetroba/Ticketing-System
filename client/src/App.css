@@ -1,11 +1,10 @@
 *{
   margin: 0;
   padding: 0;
-  z-index: inherit;
+
 
 
 }
 .App{
-  background-color: var(--darkgreentra);
-  height: 100vh;
+
 }

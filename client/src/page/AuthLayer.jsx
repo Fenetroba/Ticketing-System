@@ -9,11 +9,11 @@ const AuthLayer = () => {
   return (
     <div className="Allconten">
       <div className="main_auth_contener">
-        <h1>wellcome Ticketing System</h1>
+        <h1>Welcome To Support Ticketing System</h1>
 
         <span className="goldeDecor text-black">
         
-          <img src={logo} alt="Logo" />
+
         </span>
       </div>
   <Outlet/>
