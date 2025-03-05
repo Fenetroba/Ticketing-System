@@ -26,7 +26,7 @@ function App() {
 
  
 
-  if (!location.pathname.startsWith("/auth") && loading) {
+  if (!location.pathname.startsWith("/") && loading) {
     return <LoadePage/>; 
   }
 

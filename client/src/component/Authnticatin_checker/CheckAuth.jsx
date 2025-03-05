@@ -5,8 +5,8 @@ const CheckAuth = ({ isAuth, user, children }) => {
   const location = useLocation();
 
   // Paths
-  const loginPath = '/auth/login';
-  const signupPath = '/auth/signup';
+  const loginPath = '/login';
+  const signupPath = '/signup';
   const adminDashboardPath = '/admin/admin_dashboard';
   const shopHomePath = '/user';
 
