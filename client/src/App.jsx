@@ -2,7 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import AuthLayer from "./page/AuthLayer";
-import Login from "./page/Auth/Login";
+import Login from "./page/auth/Login";
 import Signin from "./page/auth/Signin";
 import UserLAyer from "./page/UserLayer";
 import UserDashboard from "./component/User/UserDashboard";
