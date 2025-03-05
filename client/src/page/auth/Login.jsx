@@ -56,7 +56,7 @@ const Login = () => {
         <div className="directLogiOrSign">
           {!loading && (
             <span>
-              I Am Not A Member? <Link to="/auth/signup">Sign Up</Link>
+              I Am Not A Member? <Link to="/signup">Sign Up</Link>
             </span>
           )}
         </div>

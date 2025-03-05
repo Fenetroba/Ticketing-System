@@ -20,10 +20,10 @@ const Signup = () => {
     e.preventDefault();
     Dispatch(signupUser(form)).then((data) => {
       if (data?.payload?.success) {
-        navigate("/auth/login");
+        navigate("/login");
       } else {
         toast.error("some thing is wrong");
-        navigate("/auth/login");
+        navigate("/login");
 
       }
     });
@@ -72,7 +72,7 @@ const Signup = () => {
               ""
             ) : (
               <span>
-                Alredy Have an Account ?<Link to="/auth/login">Login Here</Link>
+                Alredy Have an Account ?<Link to="/login">Login Here</Link>
               </span>
             )}
           </div>
